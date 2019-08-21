@@ -1,17 +1,16 @@
-
-    import unittest
-    import re
+import unittest
+import re
+   
+class TestSubmission(unittest.TestCase):
+    def __init__(self, *args, **kwargs):
+        super(TestStripe, self).__init__(*args, **kwargs)
+        with open('order.html', 'r') as file_descriptor:
+            self.dom_str = file_descriptor.read()
     
-    class TestSubmission(unittest.TestCase):
-        def __init__(self, *args, **kwargs):
-            super(TestStripe, self).__init__(*args, **kwargs)
-            with open('order.html', 'r') as file_descriptor:
-                self.dom_str = file_descriptor.read()
-    
-        def test_1(self):
-            return True
+    def test_1(self):
+        return True
         
-        def test_cancelUrl(self):
+    def test_cancelUrl(self):
             self.assertRegex(self.dom_str, r'cancelUrl: \'https:\/\/[a-z]*\.com/order\.html\'', 'No order.html redirect found on checkout cancel.')
 
         def test_successUrl(self):
@@ -22,6 +21,5 @@
 
         
             
-    if __name__ == '__main__':
-        unittest.main()
-    
+if __name__ == '__main__':
+    unittest.main()
