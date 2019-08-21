@@ -15,4 +15,4 @@ after_success:
  - coveralls
 notifications:
   webhooks:
-    - http://str-expert-cert-3359.botics.co/api/v1/challenge/check_builds/
+    - http://04e13ad0.ngrok.io/api/v1/challenge/check_builds/
