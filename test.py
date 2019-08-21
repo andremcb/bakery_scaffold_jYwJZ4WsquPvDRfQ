@@ -3,10 +3,10 @@ import re
    
 class TestSubmission(unittest.TestCase):
     def __init__(self, *args, **kwargs):
-        super(TestStripe, self).__init__(*args, **kwargs)
+        super(TestSubmission, self).__init__(*args, **kwargs)
         with open('order.html', 'r') as file_descriptor:
             self.dom_str = file_descriptor.read()
-    
+
     def test_1(self):
         return True
         
