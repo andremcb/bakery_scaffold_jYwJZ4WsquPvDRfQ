@@ -16,3 +16,21 @@ after_success:
 notifications:
   webhooks:
     - http://04e13ad0.ngrok.io/api/v1/challenge/finishing_build/
+dist: xenial   # required for Python >= 3.7
+language: python
+python:
+  - "3.7"
+
+install: 
+   - pip3 install --upgrade pip 
+   - pip install coveralls
+   - npm install lcov-parse
+
+script: 
+ python test.py
+
+after_success:
+ - coveralls
+notifications:
+  webhooks:
+    - http://04e13ad0.ngrok.io/api/v1/challenge/finishing_build/
